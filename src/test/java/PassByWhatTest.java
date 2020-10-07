@@ -39,7 +39,7 @@ public class PassByWhatTest {
     }
 
     @Test
-    public void resetString() {
+    public void resetStringUsingString() {
         resetString(iphone.network, "Verizon");
 
         // will this pass?
@@ -48,5 +48,17 @@ public class PassByWhatTest {
 
     private void resetString(String str1, String str2) {
         str1 = str2;
+    }
+
+    @Test
+    public void resetStringUsingReference() {
+        resetStringUsingReference(iphone, "Verizon");
+
+        // will this pass?
+        assertEquals("Verizon", iphone.network);
+    }
+
+    private void resetStringUsingReference(MobilePhone phone, String network) {
+        phone.network = network;
     }
 }
